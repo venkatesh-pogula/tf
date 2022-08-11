@@ -1,5 +1,5 @@
 properties([parameters([choice(choices: ['apply', 'destroy'], description: 'This is used for only terraform-apply and destroy', name: 'action')])])
-pipline{
+pipeline{
 
     agent any
 
