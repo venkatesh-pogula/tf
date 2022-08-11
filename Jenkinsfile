@@ -6,13 +6,16 @@ pipeline{
     stages{
         stage ('checkout'){
             steps{
-                git checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/venkatesh-pogula/tf.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/venkatesh-pogula/tf.git']]])
             }
         }
         stage ('terraform init'){
             steps{
                 sh ('terraform init')
             }
+        }
+        stage ('terraform plan'){
+            sh ('terraform plan')
         }
     }
 
